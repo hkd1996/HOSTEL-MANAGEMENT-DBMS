@@ -1,0 +1,8 @@
+
+>> change <titles>
+>> Display by room number
+>> Change rooms 
+>> mess management
+>> Insert roomno into student DB
+>> DELETE data
+>> Room edit in UPDATE

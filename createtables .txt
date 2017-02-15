@@ -1,0 +1,26 @@
+create table student ( appno int not null, 
+name varchar(30), dob date, college varchar(30) not null, course
+varchar(30) not null, duration int not null, contact varchar(10),
+joindate date, emercontact varchar(15),roomno int, primary key(appno)
+)ENGINE=INNODB;
+
+create table parent ( fathername varchar(30), mothername varchar(30), income int not null default '0', subcaste varchar(30), address varchar(100) not null, pcontact varchar(15), appno int not null REFERENCES student (appno) on update cascade, primary key(appno) ) ENGINE=INNODB;
+
+create table hostel (  studenttype varchar(30),studentcat varchar(30), totalfees int not null, exemption int not null default '0', feespaid varchar(20) default 'not paid', appno int not null REFERENCES student(appno)  on update cascade, primary key(appno) ) ENGINE=INNODB;
+
+create table headoffice ( date varchar(30) primary key not null ,
+funds int not null default '0' ) ENGINE=INNODB;
+
+create table employee ( empname varchar(30) not null, designation
+varchar(20), empaddress varchar(100), empcontact varchar(15) ) ENGINE=INNODB;
+
+create table mess (name varchar(30) REFERENCES student(name), messbill int not null,month
+varchar(15) )ENGINE=INNODB;
+
+
+create table fooditems ( grocery int, milk int, vegetables int,total int not null, month
+varchar(15) primary key)ENGINE=INNODB;
+
+create table rooms ( roomno int, vacancy int,primary key(roomno))ENGINE=INNODB;
+
+create table images ( appno int not null REFERENCES student (appno) on update cascade, image varchar(50), primary key (appno) ) ENGINE=INNODB;
